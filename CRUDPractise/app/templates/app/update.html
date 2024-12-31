@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+<title>Update</title>
+{% endblock title %}
+
+{% block content %}
+<form action="{% url 'Update' obj.id %}" method="post">
+    <input type="hidden" name="id" id="id" value={{ obj.id }}> 
+    {% csrf_token %}
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value={{obj.name}} >
+
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" value={{obj.email}}>
+
+    <label for="address">Address</label>
+    <input type="text" name="address" id="address" value={{obj.address}}>
+
+    <button type="submit">Update</button>
+</form>
+{% endblock content %}

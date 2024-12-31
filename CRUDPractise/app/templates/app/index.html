@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello this is signup page!!!</h1>
+    <table border = 1>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>Action</td>
+        {% for row in data  %}
+        <tr>
+            <td>{{row.name}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.address}}</td>
+            <td>
+                <a href="{% url 'Update' row.id %}">
+                    <button>Update</button>
+                </a>
+                
+                {% comment %} <button href={% url "Delete" row.id %}>delete</button> {% endcomment %}
+            </td> 
+        </tr>
+        
+        {% endfor %}
+    </table>
+{% endblock content %}

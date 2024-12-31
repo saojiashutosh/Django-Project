@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Register Customer</h1>
+    <hr>
+    <form action="/" method="post">
+        {% csrf_token %}
+        Customer Name : <input type="text" name="name" id="name"> <br><br><br>
+        Customer Contact : <input type="password" name="contact" id="contact"><br><br><br>
+
+        <button type="submit">Register Customer</button>
+    </form>
+    <hr>
+    <table border=1 >
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>CONTACT</th>
+            <th>Action</th>
+        </tr>
+        {% for rec in data %}
+           <tr>
+                <td>{{ rec.id }}</td>
+                <td>{{ rec.cust_name }}</td>
+                <td>{{ rec.cust_contact }}</td>
+                <td><a href="{% url 'Update' rec.id %}">Update</a>
+                    <a href="{% url 'Delete' rec.id %}">Delete</a>
+                </td>
+           </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

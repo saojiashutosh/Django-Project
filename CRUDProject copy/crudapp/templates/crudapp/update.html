@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Customer</h1>
+    <hr>
+    <form action="/update/" method="post">
+        <input type="hidden" name="id" id="id" value={{ obj.id }}>
+        {% csrf_token %}
+        Customer Name : <input type="text" name="name" id="name" value={{ obj.cust_name }}> <br><br><br>
+        Customer Contact : <input type="text" name="contact" id="contact" value={{ obj.cust_contact }}><br><br><br>
+
+        <button type="submit">Update Customer</button>
+    </form>
+</body>
+</html>
